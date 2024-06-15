@@ -41,23 +41,35 @@ These attributes provide a way to store additional information about an element 
 </div>
 </body>
 
-<audio src="audio/A.wav"></audio>
-<audio src="audio/B.wav"></audio>
-<audio src="audio/C.wav"></audio>
-<audio src="audio/D.wav"></audio>
-<audio src="audio/E.wav"></audio>
-<audio src="audio/F.wav"></audio>
-<audio src="audio/G.wav"></audio>
+<audio data-key="A" src="audio/A.wav"></audio>
+<audio data-key="B" src="audio/B.wav"></audio>
+<audio data-key="C" src="audio/C.wav"></audio>
+<audio data-key="D" src="audio/D.wav"></audio>
+<audio data-key="E" src="audio/E.wav"></audio>
+<audio data-key="F" src="audio/F.wav"></audio>
+<audio data-key="G" src="audio/G.wav"></audio>
 
 
 <script>
- //step 1: add listener on container when e.target==data-key="" invoke audio.play
- const container=document.querySelector('.container')
- container.addEventListener('click',playSound(e))
+  const audio=
+ //step 1: add listener on window when we pressdown A,>> <audio data-key="A" >.play(). so we need get the specified audio key A element,
+  //that why we add data-key, get element by CSS [attribute="value"] Selector,and set value= a property of event like code, key, Keycode
 
+ 
+ window.addEventListener('keydown', playSound)
+ 
  function playSound(e){
+
+const audio=document.querySelector(`audio[data-key='${e.key.toUpperCase()}']`)
+if (!audio)(
+ alert('only press down A,B,C,D,E,F,G')
+)
+audio.play();
+
+
+
 const target=e.target;
-target=
+
  }
 </script>
 
