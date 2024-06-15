@@ -17,25 +17,25 @@ These attributes provide a way to store additional information about an element 
 
 <body>
 <div class="container">
-  <div class="key">
+  <div data-key="A" class="key">
     <kbd>A</kbd>
   </div>
-  <div class="key">
+  <div data-key="B" class="key">
     <kbd>B</kbd>
   </div>
-  <div class="key">
+  <div data-key="C" class="key">
     <kbd>C</kbd>
   </div>
-  <div class="key">
+  <div data-key="D" class="key">
     <kbd>D</kbd>
   </div>
-  <div class="key">
+  <div data-key="E" class="key">
     <kbd>E</kbd>
   </div>
-  <div class="key">
+  <div data-key="F" class="key">
     <kbd>F</kbd>
   </div>
-  <div class="key">
+  <div data-key="G" class="key">
     <kbd>G</kbd>
   </div>
 </div>
@@ -51,8 +51,14 @@ These attributes provide a way to store additional information about an element 
 
 
 <script>
- //step 1: 
+ //step 1: add listener on container when e.target==data-key="" invoke audio.play
+ const container=document.querySelector('.container')
+ container.addEventListener('click',playSound(e))
 
+ function playSound(e){
+const target=e.target;
+target=
+ }
 </script>
 
 
