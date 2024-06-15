@@ -1,0 +1,37 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', Helvetica, sans-serif;
+}
+
+body{
+  background: url('rock.jpg') no-repeat center center/cover;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.key {
+  border: .4rem solid black;
+  border-radius: .5rem;
+  margin: 1rem;
+  font-size: 2rem;
+  padding: 1rem .5rem;
+  transition: all .07s ease;
+  width: 10rem;
+  text-align: center;
+  color: white;
+  background: rgba(0,0,0,0.8);
+  text-shadow: 0 0 .5rem black;
+}
+kbd {
+  display: block;
+  font-size: 3rem;
+}
