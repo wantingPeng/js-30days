@@ -65,6 +65,7 @@ const audio=document.querySelector(`audio[data-key='${e.key.toUpperCase()}']`)
 if (!audio)(
  alert('only press down A,B,C,D,E,F,G')
 )
+audio.currentTime=0
 audio.play();
 
 
@@ -73,7 +74,7 @@ key.classList.add('expanded')
 key.addEventListener('transitionend',()=>{
   key.classList.remove('expanded')
 })
-console.log('2222222a')
+
 
 
 
