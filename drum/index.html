@@ -51,12 +51,13 @@ These attributes provide a way to store additional information about an element 
 
 
 <script>
-  const audio=
+  
  //step 1: add listener on window when we pressdown A,>> <audio data-key="A" >.play(). so we need get the specified audio key A element,
-  //that why we add data-key, get element by CSS [attribute="value"] Selector,and set value= a property of event like code, key, Keycode
-
- 
+  //that why we add data-key, get element by CSS [attribute="value"] Selector,and set value= a propaaerty of event like code, key, Keycode
+  //when we press key down,implement transition ,chenge the style of .key scale(1.1) border-color: #ffc600;
+ // box-shadow: 0 0 1rem #ffc600;ab
  window.addEventListener('keydown', playSound)
+
  
  function playSound(e){
 
@@ -67,8 +68,11 @@ if (!audio)(
 audio.play();
 
 
+const key=document.querySelector(`div[data-key='${e.key.toUpperCase()}']`);
+key.classList.toggle('expanded')
+console.log('2222222a')
 
-const target=e.target;
+
 
  }
 </script>
