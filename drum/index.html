@@ -69,7 +69,10 @@ audio.play();
 
 
 const key=document.querySelector(`div[data-key='${e.key.toUpperCase()}']`);
-key.classList.toggle('expanded')
+key.classList.add('expanded')
+key.addEventListener('transitionend',()=>{
+  key.classList.remove('expanded')
+})
 console.log('2222222a')
 
 
