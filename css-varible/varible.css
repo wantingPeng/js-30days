@@ -3,7 +3,7 @@ In this way, once the input value changes, the CSS styling will be automatically
 
 :root{
   /* --input name */
---space:10px;
+--space:0px;
 --blur:0px;
 --color:#ffc600;
 }

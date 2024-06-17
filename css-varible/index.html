@@ -9,17 +9,17 @@
 <h1>Update CSS Variables with <span class="hlight">JS</span></h1>
   <div>
     <label for="space">space</label>
-    <input type="range" id="space" name="space" min="5" max="50" data-unit="px" >
+    <input type="range" id="space" name="space" min="5" max="50" data-unit="px" value="0" >
   
   </div>
   <div>
     <label for="blur">blur</label>
-    <input type="range" id="blur" name="blur" min="5" max="10" data-unit="px">
+    <input type="range" id="blur" name="blur" min="0" max="10" data-unit="px" value="0">
   </div>
 
   <div>
     <label for="color">blur</label>
-    <input type="color" id="color" name="color">
+    <input type="color" id="color" name="color" >
   </div>
 <img src="shutterstock_259699643-1-1024x683.jpg" >
 
@@ -28,18 +28,20 @@
   const inputs=document.querySelectorAll('input')
   const root=document.documentElement
   //console.log(root)
-  inputs.forEach(input=>input.addEventListener('change',function(){
+  inputs.forEach(input=>input.addEventListener('change',handleVarible))
+
+  function handleVarible(){
     //console.log(this)
     //console.log(this.value)
-    console.log(this.name)
+    //console.log(this.name)
 /* if (this.name=="space"||this.name=="blur")root.style.setProperty(`--${this.name}` ,this.value+ 'px')
 else {root.style.setProperty(`--${this.name}` ,this.value)} */
-//unit= this.dataset?.unit 
-//console.log(unit)
-root.style.setProperty(`--${this.name}` ,this.value+this.dataset?.unit)
-console.log(this.dataset?.unit)
-//this.dataset.unit||
-}))
+unit= this.dataset.unit ||''
+console.log(unit)
+root.style.setProperty(`--${this.name}` ,this.value+unit)
+}
+
+inputs.forEach(input=>input.addEventListener('mousemove',handleVarible))
 
   </script>
 </body>
