@@ -1,0 +1,27 @@
+:root{
+  /* --input name */
+--space:10px;
+--blur:5px;
+--color:#ffc600;
+}
+img{
+padding: var(--space);
+background: var(--color);
+filter: blur(var(--blur));
+}
+
+.hlight{
+  color: var(--color);
+}
+body {
+  text-align: center;
+  background: #193549;
+  color: white;
+  font-family: 'helvetica neue', sans-serif;
+  font-weight: 100;
+  font-size: 50px;
+}
+
+input {
+  width: 100px;
+}
