@@ -14,7 +14,7 @@
   </div>
   <div>
     <label for="blur">blur</label>
-    <input type="range" id="blur" name="blur">
+    <input type="range" id="blur" name="blur" min="5" max="10">
   </div>
 
   <div>
@@ -32,9 +32,9 @@
     //console.log(this)
     //console.log(this.value)
     console.log(this.name)
-
-    root.style.setProperty(`--${this.name}` ,this.value )
-  }))
+if (this.name=="space"||this.name=="blur")root.style.setProperty(`--${this.name}` ,this.value+ 'px')
+else {root.style.setProperty(`--${this.name}` ,this.value)}
+}))
 
   </script>
 </body>
