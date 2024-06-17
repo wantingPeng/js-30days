@@ -9,12 +9,12 @@
 <h1>Update CSS Variables with <span class="hlight">JS</span></h1>
   <div>
     <label for="space">space</label>
-    <input type="range" id="space" name="space" min="5" max="50" >
+    <input type="range" id="space" name="space" min="5" max="50" data-unit="px" >
   
   </div>
   <div>
     <label for="blur">blur</label>
-    <input type="range" id="blur" name="blur" min="5" max="10">
+    <input type="range" id="blur" name="blur" min="5" max="10" data-unit="px">
   </div>
 
   <div>
@@ -32,8 +32,13 @@
     //console.log(this)
     //console.log(this.value)
     console.log(this.name)
-if (this.name=="space"||this.name=="blur")root.style.setProperty(`--${this.name}` ,this.value+ 'px')
-else {root.style.setProperty(`--${this.name}` ,this.value)}
+/* if (this.name=="space"||this.name=="blur")root.style.setProperty(`--${this.name}` ,this.value+ 'px')
+else {root.style.setProperty(`--${this.name}` ,this.value)} */
+//unit= this.dataset?.unit 
+//console.log(unit)
+root.style.setProperty(`--${this.name}` ,this.value+this.dataset?.unit)
+console.log(this.dataset?.unit)
+//this.dataset.unit||
 }))
 
   </script>
