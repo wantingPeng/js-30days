@@ -1,7 +1,10 @@
+/*  The goal is to change the range value in HTML so that the change in value can affect the change in CSS value. Therefore, the value of the corresponding property in CSS needs to be set to a variable related to the input.
+In this way, once the input value changes, the CSS styling will be automatically controlled */
+
 :root{
   /* --input name */
 --space:10px;
---blur:5px;
+--blur:0px;
 --color:#ffc600;
 }
 img{

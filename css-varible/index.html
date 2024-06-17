@@ -9,7 +9,7 @@
 <h1>Update CSS Variables with <span class="hlight">JS</span></h1>
   <div>
     <label for="space">space</label>
-    <input type="range" id="space" name="space" min="5" max="50" value="10">
+    <input type="range" id="space" name="space" min="5" max="50" >
   
   </div>
   <div>
@@ -22,10 +22,20 @@
     <input type="color" id="color" name="color">
   </div>
 <img src="shutterstock_259699643-1-1024x683.jpg" >
-<!-- The goal is to change the range value in HTML so that the change in value can affect the change in CSS value. Therefore, the value of the corresponding property in CSS needs to be set to a variable related to the input.
-In this way, once the input value changes, the CSS styling will be automatically controlled. -->
+
   <script>
-  
+  //now we need to listen the  input tag first, noce changing the value, varible(--name):inputElement.value
+  const inputs=document.querySelectorAll('input')
+  const root=document.documentElement
+  //console.log(root)
+  inputs.forEach(input=>input.addEventListener('change',function(){
+    //console.log(this)
+    //console.log(this.value)
+    console.log(this.name)
+
+    root.style.setProperty(`--${this.name}` ,this.value )
+  }))
+
   </script>
 </body>
 </html>
