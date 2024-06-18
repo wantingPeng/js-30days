@@ -19,7 +19,13 @@
 <script>
   // first we need to fetch the data from url
   const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
-  fetch(endpoint).then(Response=>console.log(Response.json()))
+  //fetch(endpoint).then(Response=>console.log(Response.json()))
+//now we need to transfer the data to local storage
+let Array1=[];
+fetch(endpoint).then(Response=>{ console.log(typeof(Response.json()))})//it's object!!!!!!!!!
+fetch(endpoint).then(Response=>Response.json()).then(data=>console.log(data))//now it's data array(1000)
+data = fetch(endpoint).then(Response=>Response.json()).then(data=>{Array1=data})
+console.log(Array1)
 </script>
 
 </html>
