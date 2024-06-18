@@ -32,13 +32,15 @@ function filter(search){
 }
 //third step, add listener on input element, 
 const input=document.querySelector('input')
-input.addEventListener('keydown',filter)
+input.addEventListener('keydown',display)
 // now we need to consider, when we pressdown the enter, we are suppose to see the result immerdiately, but
 //func(filter) just return a object ,there are no html no css, so it's impossible diaplay on the sceen, so here
 //we need to add another function to fix the above problems.
 
 function display(){
-
+  targetObj=filter(this.value);
+  //get the city name form object in array
+  console.log(targetObj.map(object=>object.city))
 
 }
 
