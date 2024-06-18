@@ -29,9 +29,10 @@ data = fetch(endpoint).then(Response=>Response.json()).then(data=>{Array1=data})
 function filter(array,search){
   const regex = new RegExp(search,'gi')
  return array.filter(object=>object.city.match(regex))
-
 }
-//console.log(filter(Array1))
+//third step, add listener on input element, 
+const input=document.querySelector('input')
+console.log(input)
 
 
 </script>
