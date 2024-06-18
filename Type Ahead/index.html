@@ -22,10 +22,18 @@
   //fetch(endpoint).then(Response=>console.log(Response.json()))
 //now we need to transfer the data to local storage
 let Array1=[];
-fetch(endpoint).then(Response=>{ console.log(typeof(Response.json()))})//it's object!!!!!!!!!
-fetch(endpoint).then(Response=>Response.json()).then(data=>console.log(data))//now it's data array(1000)
+//fetch(endpoint).then(Response=>{ console.log(typeof(Response.json()))})//it's object!!!!!!!!!
+//fetch(endpoint).then(Response=>Response.json()).then(data=>console.log(data))//now it's data array(1000)
 data = fetch(endpoint).then(Response=>Response.json()).then(data=>{Array1=data})
-console.log(Array1)
+// now we get the data in array1 we need ues filter() and regexp to match the input
+function filter(array,search){
+  const regex = new RegExp(search,'gi')
+ return array.filter(object=>object.city.match(regex))
+
+}
+//console.log(filter(Array1))
+
+
 </script>
 
 </html>
