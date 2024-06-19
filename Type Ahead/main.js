@@ -17,7 +17,7 @@ function filter(search){
 const input = document.querySelector('input')
 const suggestions=document.querySelector('.suggestions')
 
-input.addEventListener('input',display
+input.addEventListener('change',display
   //function(event){  console.log(event.key)  ;console.log(this.value);  console.log('ss')
 )
 
@@ -28,14 +28,19 @@ function display(){
   console.log(this)
   console.log(this.value)
   targetObj=filter(this.value);
-  console.log('ssss')
-
+  console.log('ssss') 
   console.log(targetObj)
   //get the city name form object in array
-  let html=targetObj.map(object=>{return `<li>
-                                              <span>${object.city}</span>
-                                              <span>${object.population}</span></li>`});
 
+  let html=targetObj.map(object=>{
+    const newLocal = new RegExp(this.value, 'gi');
+    const regex=newLocal;
+    return 
+    `<li>
+     <span>${ object.city.replece(regex,`<span class='hl'>${this.value}</span>`)}</span>
+      <span>${object.population}</span></li>`});
    suggestions.innerHTML=html.join('')
+
+   
 } 
 

@@ -5,5 +5,5 @@ const data = [
   { name: 'Charlie', city: 'Bosnia' },
   { name: 'David', city: 'Los Angeles' }
 ];
-
+debugger
 console.log(data.map(object=>object.name).join(''));
