@@ -16,6 +16,10 @@ function filter(search){
 //const input=document.querySelector('input')
 const input = document.querySelector('input')
 const suggestions=document.querySelector('.suggestions')
+const resetSuggestions=suggestions
+const content=Array.from(document.querySelectorAll('ul.suggestions > li'))
+
+//console.log(content.map(li=>li.outerHTML))
 
 input.addEventListener('keyup',display
   //function(event){  console.log(event.key)  ;console.log(this.value);  console.log('ss')
@@ -26,8 +30,8 @@ input.addEventListener('keyup',display
 //we need to add another function to fix the above problems.
 function display(){
   if (this.value===''){
-    suggestions.innerHTML=` <li>Filter for a city</li>
-      <li>or a state</li>`
+    
+    resetSuggestions.innerHTML=content.map(li=>li.outerHTML).join('')
    }   
   else{
   targetObj=filter(this.value);
@@ -39,7 +43,7 @@ function display(){
       <span>${object.population}</span></li>`
  
     }).join('');
-   suggestions.innerHTML=result
+    resetSuggestions.innerHTML=result
   
 }
 
