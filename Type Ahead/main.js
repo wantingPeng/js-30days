@@ -17,7 +17,7 @@ function filter(search){
 const input = document.querySelector('input')
 const suggestions=document.querySelector('.suggestions')
 
-input.addEventListener('change',display
+input.addEventListener('keyup',display
   //function(event){  console.log(event.key)  ;console.log(this.value);  console.log('ss')
 )
 
@@ -25,13 +25,13 @@ input.addEventListener('change',display
 //func(filter) just return a object ,there are no html no css, so it's impossible diaplay on the sceen, so here
 //we need to add another function to fix the above problems.
 function display(){
-  console.log(this)
-  console.log(this.value)
+  if (this.value===''){
+    suggestions.innerHTML=` <li>Filter for a city</li>
+      <li>or a state</li>`
+   }   
+  else{
   targetObj=filter(this.value);
-  console.log('ssss') 
-  console.log(targetObj)
   //get the city name form object in array
-
   let result=targetObj.map(object=>{
     const targetWord= new RegExp(this.value, 'gi');
     const hlWord=`<span class='hl'>${this.value}</span>`;
@@ -41,5 +41,6 @@ function display(){
     }).join('');
    suggestions.innerHTML=result
   
-} 
+}
 
+}
