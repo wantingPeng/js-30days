@@ -32,15 +32,14 @@ function display(){
   console.log(targetObj)
   //get the city name form object in array
 
-  let html=targetObj.map(object=>{
-    const newLocal = new RegExp(this.value, 'gi');
-    const regex=newLocal;
-    return 
-    `<li>
-     <span>${ object.city.replece(regex,`<span class='hl'>${this.value}</span>`)}</span>
-      <span>${object.population}</span></li>`});
-   suggestions.innerHTML=html.join('')
-
-   
+  let result=targetObj.map(object=>{
+    const targetWord= new RegExp(this.value, 'gi');
+    const hlWord=`<span class='hl'>${this.value}</span>`;
+    return `<li><span>${ object.city.replace(targetWord,hlWord)}</span>
+      <span>${object.population}</span></li>`
+ 
+    }).join('');
+   suggestions.innerHTML=result
+  
 } 
 

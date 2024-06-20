@@ -63,3 +63,6 @@ input.search {
 }
 
 /* cause js adding style */
+span.hl{
+    background: #ffc600;
+}
