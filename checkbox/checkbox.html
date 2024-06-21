@@ -115,7 +115,6 @@
     
     if (e.shiftKey && e.target.checked){
       checkLast=this;
-      console.log(checkLast)
 //then set other box.checked=true, we can ues forEach to manipulate every box,
 
 /* box.forEach(box=>{ //console.log(box.checked)
@@ -127,6 +126,8 @@
 inBetween=false
 box.forEach(box=>{
   if (box==checkFirst){
+    console.log(checkFirst)
+
     //now we introduce a flag inBetween
     inBetween=true;
   }
@@ -135,7 +136,7 @@ box.forEach(box=>{
     //now we introduce a flag inBetween
     inBetween=false;
   }
-  if (inBetween=true){
+  if (inBetween==true){
     box.checked=true
   }
 })
