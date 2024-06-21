@@ -110,12 +110,34 @@
     //console.log(box)//the node list cause now box is not in forEach scoop anymore 
     //console.log(e.shiftKey)//true
     //console.log(e.target.checked)//
+
+    checkFirst=this
+    console.log(checkFirst)
     if (e.shiftKey && e.target.checked){
-      
+      checkLast=this;
+      console.log(checkLast)
 //then set other box.checked=true, we can ues forEach to manipulate every box,
-box.forEach(box=>{ console.log(box.checked)
+
+/* box.forEach(box=>{ //console.log(box.checked)
   return box.checked=true
- 
+}) */
+
+// now the problem is actuall we don't want to select all the box
+//we need to find out where check start and end
+inBetween=false
+box.forEach(box=>{
+  if (box==checkFirst){
+    //now we introduce a flag inBetween
+    inBetween=true;
+  }
+  if (box===checkLast){
+    console.log(checkLast)
+    //now we introduce a flag inBetween
+    inBetween=false;
+  }
+  if (inBetween=true){
+    box.checked=true
+  }
 })
 
     }
