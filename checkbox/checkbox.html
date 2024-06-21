@@ -129,12 +129,12 @@ box.forEach(box=>{
     console.log(checkFirst)
 
     //now we introduce a flag inBetween
-    inBetween=true;
+    inBetween=!inBetween;
   }
   if (box===checkLast){
     console.log(checkLast)
     //now we introduce a flag inBetween
-    inBetween=false;
+    inBetween=!inBetween;
   }
   if (inBetween==true){
     box.checked=true
