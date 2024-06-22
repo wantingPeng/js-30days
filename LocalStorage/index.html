@@ -27,13 +27,16 @@ const text=document.querySelector('[type="text"]')
 const Arts=document.querySelector('.Arts')
 //console.log(text)
 addItems.addEventListener('submit',submit)
+ValueList =[];
 
 function submit(e){
   e.preventDefault();
   //console.log(e.target)
   //console.log(text.value)
-Arts.innerHTML=` <li>${text.value}</li>`
-
+ //Arts.innerHTML +=` <li>${text.value}</li>` 
+ ValueList.push(` <li>${text.value}</li>`)
+ 
+ Arts.innerHTML=ValueList.join('');
 }
 </script>
 
