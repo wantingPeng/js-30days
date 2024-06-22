@@ -40,3 +40,14 @@ h2 {
   font-weight: 100;
   display: flex;
 }
+
+.Arts input {
+  display: none;
+}
+ .Arts input + label:before {
+  content: "⬜️";
+  margin-right: 10px;
+} 
+.Arts input:checked + label:before {
+  content: "🌮";
+}

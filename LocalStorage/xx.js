@@ -7,14 +7,24 @@ const reset= document.querySelector('#resetButton')
 
 
 //console.log(text)
-addItems.addEventListener('submit',xx)
-//ValueList =localStorage.getItem("items")?localStorage.getItem("items").split(','):[]
+addItems.addEventListener('submit',submit)
 
- reset.addEventListener('click',function(){
+ValueList =localStorage.getItem("items")?localStorage.getItem("items").split(','):[]
+
+
+// Initialize the list on page load
+document.addEventListener('DOMContentLoaded', initializeList);
+function initializeList(){
+if (ValueList.length>0){
+  Arts.innerHTML=ValueList.join('');
+}  else {Arts.innerHTML= `<li>loading..........</li>`}
+}
+
+reset.addEventListener('click',function(){
   Arts.innerHTML= `<li>loading..........</li>`
- localStorage.clear()})   
+  localStorage.clear()})  
 
-/* function submit(e){
+function submit(e){
   e.preventDefault()
  ValueList.push(` <li><input type='checkbox' > <label>${text.value}</label></li>`)
  console.log(ValueList)
@@ -24,11 +34,12 @@ addItems.addEventListener('submit',xx)
 
  addItems.reset()
 }
- */
+
 
 // here we store the whole html in local then use ValueList to get the html and then just put it in Arts.innerHTML
  // actually whole html west the space, usually only keep value, and treat value as varible in html
  
+/* 
  ValueList=[]
  function xx(e){
   e.preventDefault()
@@ -40,5 +51,4 @@ addItems.addEventListener('submit',xx)
   console.log(ValueList)
   Arts.innerHTML=ValueList.map(value=>(`<li><input type='checkbox' > <label>${value}</label></li>`)).join('')
   console.log( Arts.innerHTML)
-
- }
+}*/
