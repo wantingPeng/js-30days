@@ -22,7 +22,9 @@ if (ValueList.length>0){
 
 reset.addEventListener('click',function(){
   Arts.innerHTML= `<li>loading..........</li>`
-  localStorage.clear()})  
+  localStorage.clear("items")
+  ValueList=[]
+})  
 
 function submit(e){
   e.preventDefault()
