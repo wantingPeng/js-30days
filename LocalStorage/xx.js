@@ -8,11 +8,11 @@ const reset= document.querySelector('#resetButton')
 
 //console.log(text)
 addItems.addEventListener('submit',submit)
-ValueList =localStorage.getItem("items").split(',')
+ValueList =localStorage.getItem("items")?localStorage.getItem("items").split(','):[]
 
-console.log(ValueList)
-/*  reset.addEventListener('click',function(){
- localStorage.clear()})   */
+ reset.addEventListener('click',function(){
+  Arts.innerHTML= `<li>loading..........</li>`
+ localStorage.clear()})   
 
 function submit(e){
 
@@ -22,6 +22,8 @@ function submit(e){
   //console.log(text.value)
  //Arts.innerHTML +=` <li>${text.value}</li>` 
  ValueList.push(` <li><input type='checkbox' > <label>${text.value}</label></li>`)
+ console.log(ValueList)
+
  Arts.innerHTML=ValueList.join('');
  localStorage.setItem("items", ValueList);
 
