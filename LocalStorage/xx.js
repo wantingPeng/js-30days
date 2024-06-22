@@ -22,15 +22,17 @@ console.log(e.target)
 e.target.matches('input')
 }
 
+styleArtsList()
+
 // Initialize the list on page load
-document.addEventListener('DOMContentLoaded', initializeList);
+/* document.addEventListener('DOMContentLoaded', initializeList);
 function initializeList(){
 if (ValueList.length>0){
  
   Arts.innerHTML=html;
 }  else {Arts.innerHTML= `<li>loading..........</li>`}
 }
-
+ */
 reset.addEventListener('click',function(){
   Arts.innerHTML= `<li>loading..........</li>`
   localStorage.clear("items")
@@ -65,10 +67,12 @@ reset.addEventListener('click',function(){
   ValueList.push(text.value)
  
   localStorage.setItem("items", ValueList);
-  ValueList =localStorage.getItem("items")?localStorage.getItem("items").split(','):[]
-  
-  let html=ValueList.map(value=>(`<li><input type='checkbox' > <label>${value}</label></li>`)).join('')
-  Arts.innerHTML=html;
-  console.log(html)
+ 
+  styleArtsList()
+ 
   addItems.reset()
 }
+function styleArtsList(){
+let html=ValueList.map(value=>(`<li><input type='checkbox' > <label>${value}</label></li>`)).join('')
+Arts.innerHTML=html;
+console.log(html)}
