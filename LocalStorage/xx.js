@@ -7,20 +7,15 @@ const reset= document.querySelector('#resetButton')
 
 
 //console.log(text)
-addItems.addEventListener('submit',submit)
-ValueList =localStorage.getItem("items")?localStorage.getItem("items").split(','):[]
+addItems.addEventListener('submit',xx)
+//ValueList =localStorage.getItem("items")?localStorage.getItem("items").split(','):[]
 
  reset.addEventListener('click',function(){
   Arts.innerHTML= `<li>loading..........</li>`
  localStorage.clear()})   
 
-function submit(e){
-
-  e.preventDefault();
-
-  //console.log(e.target)
-  //console.log(text.value)
- //Arts.innerHTML +=` <li>${text.value}</li>` 
+/* function submit(e){
+  e.preventDefault()
  ValueList.push(` <li><input type='checkbox' > <label>${text.value}</label></li>`)
  console.log(ValueList)
 
@@ -28,7 +23,22 @@ function submit(e){
  localStorage.setItem("items", ValueList);
 
  addItems.reset()
- //localStorage key-value pairs the value must be String
- //console.log(typeof(localStorage.getItem("items")))//[" <li><input type='checkbox' > <label>gg</label></li>"," <li><input type='checkbox' > <label>hh</label></li>"]
- //console.log(localStorage.getItem("items").split(','))
 }
+ */
+
+// here we store the whole html in local then use ValueList to get the html and then just put it in Arts.innerHTML
+ // actually whole html west the space, usually only keep value, and treat value as varible in html
+ 
+ ValueList=[]
+ function xx(e){
+  e.preventDefault()
+
+  ValueList.push(text.value)
+  console.log(ValueList)
+  localStorage.setItem("items", ValueList);
+  ValueList =localStorage.getItem("items")?localStorage.getItem("items").split(','):[]
+  console.log(ValueList)
+  Arts.innerHTML=ValueList.map(value=>(`<li><input type='checkbox' > <label>${value}</label></li>`)).join('')
+  console.log( Arts.innerHTML)
+
+ }
