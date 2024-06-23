@@ -12,8 +12,10 @@ Arts.addEventListener('click',click)
 // when i click the <li>area i hope the icon got changed 
 //and get spired from css. the point is the state of checked 
 //but because we alternative the content checkbox to a icon, we need to add the state checked manually 
-ValueList =localStorage.getItem("items")?localStorage.getItem("items").split(','):[]
 
+//ValueList =localStorage.getItem("items")?localStorage.getItem("items").split(','):[]
+ValueList =JSON.parse(localStorage.getItem('items')) || [];
+console.log(ValueList)
 
 
 styleArtsList()
@@ -59,9 +61,13 @@ const save={
   text: text.value,
   flag:false
 }
+
+
   ValueList.push(save)
- 
-  localStorage.setItem("items", ValueList);
+
+  localStorage.setItem("items", JSON.stringify(ValueList));//[object Object],[object Object]
+  console.log(JSON.stringify(ValueList))
+  console.log(localStorage.getItem("items"))
  // if i add a item then i call it and style the whole list inclide the new one all over again so, the preoblem here is,
  // what 
  //
@@ -70,18 +76,15 @@ const save={
   addItems.reset()
 }
 function styleArtsList(){
-let html=ValueList.map((value, index)=>(`<li><input type='checkbox' id='${index}'  > <label for='${index}'>${value}</label></li>`)).join('')
-Arts.innerHTML=html;
-console.log(html)}
 
+let html=ValueList.map((object, index)=>(`<li><input type='checkbox' id='${index}'   > <label for='${index}'>${object.text}</label></li>`)).join('')
+Arts.innerHTML=html;
+}
 function click(e){
   //console.log(this)
   //console.log(e)
   //console.log(e.target)
- // after click, if we want to preserve the state , then have to add the 'checked' in localstorage,
- // but can not just save 'checked', because this could happen or not. so we can bulid a flag and give it a value, if it happens later then flip the value
  
- console.log(e.target)
  styleArtsList()
  
   }
