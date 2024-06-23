@@ -53,12 +53,13 @@ reset.addEventListener('click',function(){
 // here we store the whole html in local then use ValueList to get the html and then just put it in Arts.innerHTML
  // actually whole html west the space, usually only keep value, and treat value as varible in html
  
- 
-
  function xx(e){
   e.preventDefault()
-
-  ValueList.push(text.value)
+const save={
+  text: text.value,
+  flag:false
+}
+  ValueList.push(save)
  
   localStorage.setItem("items", ValueList);
  // if i add a item then i call it and style the whole list inclide the new one all over again so, the preoblem here is,
@@ -70,7 +71,6 @@ reset.addEventListener('click',function(){
 }
 function styleArtsList(){
 let html=ValueList.map((value, index)=>(`<li><input type='checkbox' id='${index}'  > <label for='${index}'>${value}</label></li>`)).join('')
-//when i click the lable, for='1' will look for id=1 the first id='1' is the first item so  click lebel only the first response
 Arts.innerHTML=html;
 console.log(html)}
 
@@ -78,6 +78,10 @@ function click(e){
   //console.log(this)
   //console.log(e)
   //console.log(e.target)
-  console.log(e.target)
+ // after click, if we want to preserve the state , then have to add the 'checked' in localstorage,
+ // but can not just save 'checked', because this could happen or not. so we can bulid a flag and give it a value, if it happens later then flip the value
+ 
+ console.log(e.target)
+ styleArtsList()
  
   }
