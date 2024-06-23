@@ -15,7 +15,7 @@ Arts.addEventListener('click',click)
 
 //ValueList =localStorage.getItem("items")?localStorage.getItem("items").split(','):[]
 ValueList =JSON.parse(localStorage.getItem('items')) || [];
-console.log(ValueList)
+//console.log(ValueList)
 
 
 styleArtsList()
@@ -66,25 +66,24 @@ const save={
   ValueList.push(save)
 
   localStorage.setItem("items", JSON.stringify(ValueList));//[object Object],[object Object]
-  console.log(JSON.stringify(ValueList))
-  console.log(localStorage.getItem("items"))
- // if i add a item then i call it and style the whole list inclide the new one all over again so, the preoblem here is,
- // what 
- //
+
+
   styleArtsList()
  
   addItems.reset()
 }
 function styleArtsList(){
 
-let html=ValueList.map((object, index)=>(`<li><input type='checkbox' id='${index}'   > <label for='${index}'>${object.text}</label></li>`)).join('')
+let html=ValueList.map((object, index)=>(`<li><input type='checkbox' id='${index}'> <label for='${index}'>${object.text}</label></li>`)).join('')
 Arts.innerHTML=html;
 }
 function click(e){
   //console.log(this)
   //console.log(e)
-  //console.log(e.target)
- 
- styleArtsList()
+
+  console.log(e.target.matches('input'))
+
+  
+ //styleArtsList()
  
   }
