@@ -65,7 +65,7 @@ const save={
 
   ValueList.push(save)
 
-  localStorage.setItem("items", JSON.stringify(ValueList));//[object Object],[object Object]
+  ;//[object Object],[object Object]
 
 
   styleArtsList()
@@ -73,17 +73,19 @@ const save={
   addItems.reset()
 }
 function styleArtsList(){
-
-let html=ValueList.map((object, index)=>(`<li><input type='checkbox' id='${index}'> <label for='${index}'>${object.text}</label></li>`)).join('')
+  localStorage.setItem("items", JSON.stringify(ValueList))
+let html=ValueList.map((object, index)=>(`<li><input type='checkbox' id='${index}' ${object.flag?'checked':''}> <label for='${index}'>${object.text}</label></li>`)).join('')
 Arts.innerHTML=html;
 }
 function click(e){
   //console.log(this)
   //console.log(e)
 
-  console.log(e.target.matches('input'))
-
-  
+  if(!e.target.matches('input'))return
+  index=e.target.id
+  ValueList[index].flag=true;
+  console.log(ValueList[index].flag);
+  styleArtsList()
  //styleArtsList()
  
   }
