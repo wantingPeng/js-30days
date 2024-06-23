@@ -8,19 +8,13 @@ const reset= document.querySelector('#resetButton')
 
 //console.log(text)
 addItems.addEventListener('submit',xx)
-Arts.addEventListener('click',check)
+Arts.addEventListener('click',click)
 // when i click the <li>area i hope the icon got changed 
 //and get spired from css. the point is the state of checked 
 //but because we alternative the content checkbox to a icon, we need to add the state checked manually 
 ValueList =localStorage.getItem("items")?localStorage.getItem("items").split(','):[]
 
-function check(e){
-//console.log(this)
-//console.log(e)
-//console.log(e.target)
-console.log(e.target)
-e.target.matches('input')
-}
+
 
 styleArtsList()
 
@@ -67,12 +61,23 @@ reset.addEventListener('click',function(){
   ValueList.push(text.value)
  
   localStorage.setItem("items", ValueList);
- 
+ // if i add a item then i call it and style the whole list inclide the new one all over again so, the preoblem here is,
+ // what 
+ //
   styleArtsList()
  
   addItems.reset()
 }
 function styleArtsList(){
-let html=ValueList.map(value=>(`<li><input type='checkbox' > <label>${value}</label></li>`)).join('')
+let html=ValueList.map((value, index)=>(`<li><input type='checkbox' id='${index}'  > <label for='${index}'>${value}</label></li>`)).join('')
+//when i click the lable, for='1' will look for id=1 the first id='1' is the first item so  click lebel only the first response
 Arts.innerHTML=html;
 console.log(html)}
+
+function click(e){
+  //console.log(this)
+  //console.log(e)
+  //console.log(e.target)
+  console.log(e.target)
+ 
+  }
